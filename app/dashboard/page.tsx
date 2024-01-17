@@ -7,11 +7,11 @@ import { fetchCardData, fetchLatestInvoices, fetchRevenue } from '@/app/lib/data
 export default async function Page() {
     const revenue = await fetchRevenue();
     const latestInvoices = await fetchLatestInvoices();
-    const cards = await fetchCardData();
-    const totalPaidInvoices = cards.totalPaidInvoices;
-    const totalPendingInvoices = cards.totalPendingInvoices;
-    const numberOfInvoices = cards.numberOfInvoices;
-    const numberOfCustomers = cards.numberOfCustomers;
+    const {
+        totalPaidInvoices,
+        totalPendingInvoices,
+        numberOfInvoices,
+        numberOfCustomers } = await fetchCardData();
     return (
     <main>
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
